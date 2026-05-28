@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>NOVA Chat | محیط گفت‌وگوی امن</title>
+    <style>
+        body { background: #070B14; color: #fff; font-family: sans-serif; padding: 20px; direction: rtl; }
+        .chat-container { max-width: 900px; margin: 40px auto; background: rgba(15,21,36,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); position: relative; min-height: 500px; }
+        .chat-header { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .anti-screenshot-alert { font-size: 0.8rem; color: #ef4444; background: rgba(239,68,68,0.1); padding: 0.3rem 0.8rem; border-radius: 5px; }
+        .sidebar-spaces { display: flex; gap: 10px; margin: 15px 0; overflow-x: auto; padding-bottom: 10px; }
+        .space-pill { background: rgba(255,255,255,0.05); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; white-space: nowrap; cursor: pointer; border: 1px solid transparent; }
+        .space-pill:hover { border-color: #6366F1; }
+        .message-area { background: rgba(0,0,0,0.2); border-radius: 10px; height: 300px; padding: 15px; overflow-y: auto; margin-bottom: 20px; }
+        .destruct-notice { color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px; display: flex; align-items: center; gap: 5px; }
+        /* نوار ابزار پایین صفحه */
+        .bottom-toolbar { display: flex; gap: 10px; justify-content: space-around; background: rgba(23,32,51,0.9); padding: 12px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .tool-btn { background: transparent; border: none; color: #E5E7EB; cursor: pointer; font-size: 0.9rem; }
+        .tool-btn:hover { color: #6366F1; }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h3>💬 مرکز ارتباطات هوشمند NOVA</h3>
+            <span class="anti-screenshot-alert">🔒 قابلیت محافظت: اسکرین‌شات و ضبط صفحه مسدود است</span>
+        </div>
+
+        <!-- تفکیک لایه‌ای اجتماع حساب‌ها -->
+        <div class="sidebar-spaces">
+            <div class="space-pill">👤 گفت‌وگوی شخصی</div>
+            <div class="space-pill" style="color: #6366F1;">⏱️ چت شخصی موقت</div>
+            <div class="space-pill">🌟 کلوز فرند</div>
+            <div class="space-pill">💖 پروفایل پارتنری</div>
+            <div class="space-pill">🤖 بات‌های اختصاصی</div>
+            <div class="space-pill">📢 کانال‌ها و گروه‌ها</div>
+        </div>
+
+        <div class="message-area">
+            <div class="destruct-notice">⚠️ سیستم حذف خودکار دوطرفه فعال است (پاکسازی چت تا ۵ دقیقه آینده به طرف مقابل اطلاع داده شده است).</div>
+            <div style="background:rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                <strong>حساب کاربری رندوم (تیک آبی):</strong> سلام، پروژه فریلنسری در کانال اختصاصی ست شد؟
+            </div>
+        </div>
+
+        <!-- نوار ابزار پایین صفحه ابزارها -->
+        <div class="bottom-toolbar">
+            <button class="tool-btn">🎙️ دستیار صوتی</button>
+            <button class="tool-btn">🔍 جست‌وجوی شناسه</button>
+            <button class="tool-btn">📌 پین گفت‌وگو</button>
+            <button class="tool-btn">📦 بایگانی</button>
+            <button class="tool-btn" style="color: #ef4444;">🛠️ مدیریت پین/رمز عبور چت</button>
+        </div>
+    </div>
+</body>
+</html>

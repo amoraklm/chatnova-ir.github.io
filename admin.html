@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>NOVA Core Admin Panel | کنترل مرکزی</title>
+    <style>
+        body { background: #070B14; color: #F9FAFB; font-family: sans-serif; padding: 30px; direction: rtl; }
+        .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 20px; }
+        .stat-box { background: #0F1524; border: 1px solid rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
+        .stat-box h4 { color: #9CA3AF; font-size: 0.85rem; margin-bottom: 5px; }
+        .stat-box .number { font-size: 1.8rem; font-weight: bold; color: #6366F1; }
+        .control-section { background: #172033; padding: 25px; border-radius: 15px; margin-top: 30px; border: 1px solid rgba(255,255,255,0.08); }
+        .btn-action { background: #ef4444; color: white; padding: 8px 15px; border-radius: 6px; border: none; cursor: pointer; }
+        .btn-wallet-control { background: #10B981; color: white; padding: 8px 15px; border-radius: 6px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>🛠️ کنسول مدیریتی و کنترل سوپر ادمین NOVA</h2>
+    <p style="color: #9CA3AF;">نظارت بر تیک‌ها، مانیتورینگ خودکار محتوای ناهنجار و تعادل پولی بازار توکن</p>
+
+    <!-- آمار کل و جزء سیستم -->
+    <div class="admin-grid">
+        <div class="stat-box"><h4>کل کاربران ثبت‌نام شده</h4><div class="number">۱,۲۴۵,۸۹۰</div></div>
+        <div class="stat-box"><h4>کاربران دارای اشتراک پریمیوم</h4><div class="number">۸۴,۲۲۰</div></div>
+        <div class="stat-box"><h4>حساب‌های دارای تیک رسمی (بنفش/طلایی)</h4><div class="number">۱,۱۵۰</div></div>
+        <div class="stat-box"><h4>ارز NOVA در گردش خزانه</h4><div class="number">۴۵,۰۰۰,۰۰۰ 🪙</div></div>
+    </div>
+
+    <!-- بخش کنترل سیاست پولی و نظارت متخلفین -->
+    <div class="control-section">
+        <h3>🪙 مدیریت عرضه، تقاضا و سیاست پولی ارز NOVA</h3>
+        <p style="font-size:0.9rem; color:#9CA3AF; margin-bottom:15px;">تنظیم قیمت دستی یا افزایش/کاهش موجودی خزانه جهت جلوگیری از چاپ پول بدون پشتوانه و مدیریت ارزش توکن.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn-wallet-control">➕ تزریق نامحدود ارز NOVA به خزانه</button>
+            <button class="btn-wallet-control" style="background:#f59e0b;">⚙️ تنظیم دستی ارزش بر پایه تتر/دلار</button>
+            <button class="btn-action">⚠️ تعلیق آنی حساب‌های متخلف (برچسب کلاهبردار)</button>
+        </div>
+    </div>
+
+    <div class="control-section" style="background: rgba(15,21,36,0.6);">
+        <h3>🔍 فیلتر پیشرفته کاربران پلتفرم</h3>
+        <p style="font-size:0.9rem; color:#9CA3AF; margin-bottom:10px;">نمایش لیست بر اساس: دارندگان نام کاربری کلکسیونی | تیک حقوقی | حساب‌های بیزنس پارتنر</p>
+        <input type="text" placeholder="جست‌وجوی دستی حساب کاربری بر اساس آیدی یا عدد یکتا..." style="width:100%; padding:10px; background:#070B14; border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:6px;">
+    </div>
+</body>
+</html>

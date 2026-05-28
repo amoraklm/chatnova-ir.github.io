@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>NOVA | آینده هوشمند در یک پلتفرم</title>
-    <meta name="description" content="NOVA: سوپر اپلیکیشن نسل جدید با طراحی تکنولوژیک - پیام‌رسان، کیف پول، هوش مصنوعی و خدمات یکپارچه">
+    <title>NOVA SuperApp | اکوسیستم هوشمند و نسل جدید ارتباطات</title>
+    <meta name="description" content="سوپر اپلیکیشن NOVA: پلتفرم یکپارچه ارتباطی، بستر تبادل ارز NOVA، حریم خصوصی مطلق و ابزارهای پیشرفته بیزینس">
     <meta name="theme-color" content="#0B0F19">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <style>
-        /* ========== فونت و تنظیمات پایه ========== */
+        /* ========== سیستم طراحی تکنولوژیک (Liquid Glass) ========== */
         @font-face {
             font-family: 'IRANSansXFaNum';
             src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx-font@latest/dist/IRANSansXFaNum.woff2') format('woff2');
@@ -16,12 +16,10 @@
             font-display: swap;
         }
 
-        /* ========== سیستم طراحی تکنولوژیک ========== */
         :root {
             --bg-deep: #070B14;
             --bg-surface: #0F1524;
             --bg-elevated: #172033;
-            
             --text-primary: #F9FAFB;
             --text-secondary: #E5E7EB;
             --text-muted: #9CA3AF;
@@ -31,441 +29,269 @@
             --primary-hover: #818CF8;
             --primary-glow: rgba(99, 102, 241, 0.4);
             --secondary: #06B6D4;
-            --secondary-glow: rgba(6, 182, 212, 0.3);
             --success: #10B981;
             
-            /* Liquid Glassmorphism Core */
+            /* Ticks Colors */
+            --tick-official: #A855F7; /* بنفش */
+            --tick-personal: #3B82F6; /* آبی */
+            --tick-business: #10B981; /* سبز */
+            --tick-royal: #F59E0B;    /* طلایی */
+
             --glass-bg: rgba(15, 23, 42, 0.55);
             --glass-bg-strong: rgba(11, 19, 36, 0.8);
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-border-active: rgba(99, 102, 241, 0.5);
-            --glass-highlight: rgba(255, 255, 255, 0.05);
             --glass-blur: blur(20px) saturate(180%);
             
-            /* Dark Neumorphism */
             --neu-dark: rgba(0, 0, 0, 0.6);
             --neu-light: rgba(255, 255, 255, 0.04);
             --neu-shadow: 10px 10px 25px var(--neu-dark), -5px -5px 20px var(--neu-light);
             --neu-shadow-hover: 15px 15px 30px var(--neu-dark), -8px -8px 25px var(--neu-light);
             --neu-inset: inset 4px 4px 10px var(--neu-dark), inset -3px -3px 8px var(--neu-light);
             
-            /* Animations */
-            --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
-            --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-fast: 150ms var(--ease-snappy);
-            --transition-normal: 300ms var(--ease-snappy);
-            --transition-slow: 600ms var(--ease-fluid);
-            
             --radius-sm: 0.75rem;
             --radius-md: 1.25rem;
             --radius-lg: 1.75rem;
             --radius-xl: 2.5rem;
+            --radius-full: 9999px;
             --max-width: 1300px;
             --container-padding: clamp(1rem, 5vw, 2.5rem);
-            
-            --gradient-tech: linear-gradient(135deg, var(--primary), var(--secondary));
             --gradient-liquid: linear-gradient(-45deg, #4F46E5, #06B6D4, #3B82F6, #10B981);
         }
 
-        /* ========== ریست و پایه ========== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 90px; }
-        body {
-            font-family: 'IRANSansXFaNum', system-ui, sans-serif;
-            background: var(--bg-deep);
-            color: var(--text-primary);
-            line-height: 1.8;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+        html { scroll-behavior: smooth; font-family: 'IRANSansXFaNum', sans-serif; background: var(--bg-deep); color: var(--text-primary); overflow-x: hidden; }
+        body { line-height: 1.8; }
 
-        /* ========== پویایی و مایع بودن پس‌زمینه ========== */
-        .liquid-bg-container {
-            position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
-        }
-        .liquid-blob {
-            position: absolute; width: 500px; height: 500px; border-radius: 50%;
-            background: linear-gradient(45deg, rgba(99,102,241,0.15), rgba(6,182,212,0.1));
-            filter: blur(80px); animation: liquid-float 20s infinite alternate var(--ease-fluid);
-            will-change: transform;
-        }
-        .liquid-blob-1 { top: -10%; left: -10%; background: rgba(99,102,241,0.18); }
-        .liquid-blob-2 { bottom: -10%; right: -10%; background: rgba(6,182,212,0.15); animation-delay: -5s; }
-        .liquid-blob-3 { top: 40%; left: 50%; width: 300px; height: 300px; background: rgba(16,185,129,0.08); animation-delay: -10s; }
+        /* Background Effects */
+        .liquid-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+        .blob { position: absolute; width: 600px; height: 600px; border-radius: 50%; filter: blur(100px); opacity: 0.15; animation: float 25s infinite alternate ease-in-out; }
+        .blob-1 { top: -10%; left: -10%; background: var(--primary); }
+        .blob-2 { bottom: -10%; right: -10%; background: var(--secondary); animation-delay: -5s; }
+        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(100px, 80px) scale(1.2); } }
 
-        @keyframes liquid-float {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            100% { transform: translate(80px, 50px) scale(1.2) rotate(360deg); }
-        }
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; z-index: 1000; background: var(--gradient-liquid); background-size: 300% 300%; width: 0%; transition: width 0.1s; }
 
-        .tech-grid {
-            position: fixed; inset: 0; pointer-events: none; z-index: 0;
-            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 50px 50px; mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
-        }
-
-        /* ========== انیمیشن‌ها ========== */
-        @keyframes liquid-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes reveal-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity var(--transition-slow), transform var(--transition-slow); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ========== نوار پیشرفت ========== */
-        .scroll-progress {
-            position: fixed; top: 0; left: 0; height: 3px; z-index: 1000;
-            background: var(--gradient-liquid); background-size: 300% 300%;
-            animation: liquid-shift 8s linear infinite; width: 0%;
-        }
-
-        /* ========== ناوبری شناور ========== */
-        .floating-nav {
-            position: fixed; left: 1.5rem; top: 50%; transform: translateY(-50%);
-            z-index: 500; display: flex; flex-direction: column; gap: 0.8rem; padding: 0.8rem 0.6rem;
-            background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border); border-radius: var(--radius-xl); box-shadow: var(--neu-shadow);
-        }
-        .nav-dot {
-            width: 12px; height: 12px; border-radius: 50%; background: var(--text-muted); border: none;
-            cursor: pointer; transition: all var(--transition-fast); position: relative;
-        }
-        .nav-dot::after {
-            content: attr(data-label); position: absolute; right: 25px; top: 50%; transform: translateY(-50%) translateX(10px);
-            background: var(--bg-surface); color: var(--text-primary); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm);
-            font-size: 0.75rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: all var(--transition-fast);
-            border: 1px solid var(--glass-border);
-        }
+        /* Floating Nav */
+        .floating-nav { position: fixed; left: 1.5rem; top: 50%; transform: translateY(-50%); z-index: 500; display: flex; flex-direction: column; gap: 0.8rem; padding: 0.8rem 0.6rem; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); box-shadow: var(--neu-shadow); }
+        .nav-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--text-muted); border: none; cursor: pointer; transition: all 0.3s; position: relative; }
+        .nav-dot::after { content: attr(data-label); position: absolute; right: 25px; top: 50%; transform: translateY(-50%) translateX(10px); background: var(--bg-surface); color: #fff; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.75rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.2s; border: 1px solid var(--glass-border); }
         .nav-dot:hover::after { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
-        .nav-dot.active { background: var(--gradient-tech); transform: scale(1.3); box-shadow: 0 0 10px var(--primary-glow); }
+        .nav-dot.active { background: var(--gradient-liquid); transform: scale(1.3); }
 
-        /* ========== هدر شیشه‌ای مایع ========== */
-        .header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 600;
-            background: rgba(7, 11, 20, 0.4); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-            border-bottom: 1px solid var(--glass-border); padding: 0 var(--container-padding); transition: all var(--transition-normal);
-        }
-        .header.scrolled { background: var(--glass-bg-strong); border-bottom-color: var(--glass-border-active); box-shadow: var(--neu-shadow); }
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 600; background: rgba(7, 11, 20, 0.4); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-border); padding: 0 var(--container-padding); }
         .header-inner { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 80px; }
-        
-        .logo {
-            font-size: 1.8rem; font-weight: 900; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
-            background: var(--gradient-tech); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+        .logo { font-size: 1.8rem; font-weight: 900; background: var(--gradient-liquid); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary-hover); }
 
-        .nav { display: flex; align-items: center; gap: 0.5rem; }
-        .nav-link {
-            color: var(--text-secondary); text-decoration: none; padding: 0.5rem 1rem; border-radius: var(--radius-sm);
-            font-size: 0.95rem; font-weight: 500; transition: all var(--transition-fast);
-        }
-        .nav-link:hover, .nav-link.active { color: var(--primary-hover); background: rgba(255,255,255,0.03); }
-
-        /* ========== دکمه‌ها ========== */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-            padding: 0.75rem 2rem; border-radius: var(--radius-md); font-weight: 600; font-size: 0.95rem;
-            text-decoration: none; transition: all var(--transition-normal); cursor: pointer; border: none;
-            position: relative; overflow: hidden; box-shadow: var(--neu-shadow); text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-        }
-        .btn-primary {
-            background: var(--gradient-liquid); background-size: 200% 200%; color: white;
-            animation: liquid-shift 6s ease infinite; border: 1px solid rgba(255,255,255,0.1);
-        }
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 2rem; border-radius: var(--radius-md); font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; box-shadow: var(--neu-shadow); }
+        .btn-primary { background: var(--gradient-liquid); background-size: 200% 200%; color: white; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--neu-shadow-hover), 0 8px 20px var(--primary-glow); }
-        .btn-glass {
-            background: var(--glass-bg); backdrop-filter: var(--glass-blur); color: var(--text-primary);
-            border: 1px solid var(--glass-border);
-        }
-        .btn-glass:hover { background: rgba(255,255,255,0.08); border-color: var(--glass-border-active); transform: translateY(-3px); }
-        .btn:active { transform: translateY(-1px); box-shadow: var(--neu-inset); }
+        .btn-glass { background: var(--glass-bg); border: 1px solid var(--glass-border); color: #fff; }
+        .btn-glass:hover { border-color: var(--glass-border-active); transform: translateY(-3px); }
 
-        /* ========== افکت کلیک ریپل ========== */
-        .ripple {
-            position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.3);
-            transform: scale(0); animation: ripple-effect 0.6s ease-out; pointer-events: none;
-        }
-        @keyframes ripple-effect { to { transform: scale(4); opacity: 0; } }
-
-        /* ========== محتوا و سکشن‌ها ========== */
-        .main { max-width: var(--max-width); margin: 0 auto; padding: 6rem var(--container-padding) 4rem; position: relative; z-index: 10; }
+        /* Sections Structure */
+        .main { max-width: var(--max-width); margin: 0 auto; padding: 6rem var(--container-padding) 4rem; }
         .section { padding: 5rem 0; }
         .section-header { text-align: center; margin-bottom: 4rem; }
         .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #fff, var(--text-tech)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .section-subtitle { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
 
-        /* ========== Hero Section ========== */
-        .hero {
-            min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border); border-radius: var(--radius-xl); box-shadow: var(--neu-shadow);
-            padding: 4rem 2rem; position: relative; overflow: hidden; margin-bottom: 3rem;
-        }
-        .hero-badge {
-            display: inline-block; padding: 0.4rem 1.2rem; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3);
-            border-radius: var(--radius-full); color: var(--text-tech); font-size: 0.85rem; margin-bottom: 1.5rem;
-        }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.2; margin-bottom: 1.5rem; background: linear-gradient(135deg, #fff 30%, var(--primary-hover)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 700px; margin: 0 auto 2.5rem; line-height: 2; }
-        .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        /* Hero */
+        .hero { text-align: center; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 5rem 2rem; box-shadow: var(--neu-shadow); margin-bottom: 3rem; }
+        .hero-badge { display: inline-block; padding: 0.4rem 1.2rem; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: var(--radius-full); color: var(--text-tech); font-size: 0.85rem; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; margin-bottom: 1.5rem; line-height: 1.3; }
+        .hero p { color: var(--text-secondary); max-width: 750px; margin: 0 auto 2.5rem; font-size: 1.1rem; }
 
-        /* ========== کارت‌های پلتفرم و خدمات ========== */
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .card-tech {
-            background: linear-gradient(135deg, var(--bg-surface), var(--bg-elevated));
-            border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 2.5rem 2rem;
-            box-shadow: var(--neu-shadow); transition: all var(--transition-normal); position: relative; overflow: hidden;
-            transform-style: preserve-3d; transform: perspective(1000px);
-        }
-        .card-tech:hover {
-            transform: translateY(-10px) rotateX(2deg) rotateY(2deg); border-color: var(--glass-border-active);
-            box-shadow: var(--neu-shadow-hover), 0 10px 20px rgba(99,102,241,0.1);
-        }
-        .card-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; filter: drop-shadow(0 5px 10px var(--primary-glow)); }
-        .card-tech h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
-        .card-tech p { color: var(--text-muted); font-size: 0.95rem; }
+        /* Grid System */
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card-tech { background: linear-gradient(135deg, var(--bg-surface), var(--bg-elevated)); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 2.5rem 2rem; box-shadow: var(--neu-shadow); transition: all 0.3s; }
+        .card-tech:hover { transform: translateY(-5px); border-color: var(--glass-border-active); box-shadow: var(--neu-shadow-hover); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
 
-        /* ========== بخش تب‌های ویژگی‌ها ========== */
-        .features-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
-        .tab-btn {
-            padding: 0.6rem 1.5rem; border-radius: var(--radius-full); background: transparent; border: 1px solid var(--glass-border);
-            color: var(--text-muted); cursor: pointer; transition: all var(--transition-fast);
-        }
-        .tab-btn:hover, .tab-btn.active { color: #fff; border-color: var(--primary); background: rgba(99,102,241,0.1); }
-        .tab-content { display: none; animation: reveal-in var(--transition-normal) forwards; }
-        .tab-content.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        /* Ticks Section */
+        .ticks-group { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-top: 2rem; }
+        .tick-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); font-weight: 600; }
+        .tick-purple { border-color: var(--tick-official); color: var(--tick-official); }
+        .tick-blue { border-color: var(--tick-personal); color: var(--tick-personal); }
+        .tick-green { border-color: var(--tick-business); color: var(--tick-green); }
+        .tick-gold { border-color: var(--tick-royal); color: var(--tick-royal); }
 
-        /* ========== بخش جدید: نقشه راه (Roadmap) ========== */
-        .roadmap-container { position: relative; padding: 2rem 0; }
-        .roadmap-container::before {
-            content: ''; position: absolute; top: 0; bottom: 0; right: 50%; width: 2px;
-            background: linear-gradient(to bottom, transparent, var(--primary), var(--secondary), transparent);
-        }
-        .roadmap-item { width: 50%; padding: 1.5rem 2.5rem; position: relative; box-sizing: border-box; }
-        .roadmap-item::after {
-            content: ''; position: absolute; width: 16px; height: 16px; right: -8px; top: 2rem;
-            background: var(--bg-deep); border: 3px solid var(--secondary); border-radius: 50%; z-index: 10;
-        }
-        .roadmap-item.left { margin-left: auto; padding-right: 0; padding-left: 2.5rem; }
-        .roadmap-item.left::after { right: auto; left: -8px; border-color: var(--primary); }
-        .roadmap-box {
-            background: var(--glass-bg); backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border);
-            padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--neu-shadow);
-        }
-
-        /* ========== بخش جدید: پکیج‌های توسعه و اشتراک ========== */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .pricing-card {
-            background: var(--glass-bg); backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg); padding: 3rem 2rem; text-align: center; box-shadow: var(--neu-shadow);
-            transition: all var(--transition-normal); position: relative;
-        }
-        .pricing-card.premium { border-color: var(--primary); background: rgba(15, 23, 42, 0.75); }
-        .pricing-card.premium::before {
-            content: 'پیشنهاد ویژه'; position: absolute; top: 1rem; left: 1rem; background: var(--gradient-tech);
-            padding: 0.2rem 0.8rem; border-radius: var(--radius-full); font-size: 0.75rem;
-        }
-        .pricing-card:hover { transform: scale(1.03); box-shadow: var(--neu-shadow-hover); }
-        .price { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 1.5rem 0; }
-        .price span { font-size: 1rem; color: var(--text-muted); }
-        .pricing-features { list-style: none; margin-bottom: 2rem; color: var(--text-secondary); text-align: right; padding-right: 1rem;}
-        .pricing-features li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        /* Pricing & Tokens */
+        .pricing-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 3rem 2rem; text-align: center; box-shadow: var(--neu-shadow); position: relative; }
+        .pricing-card.premium-tier { border-color: var(--primary); background: rgba(15, 23, 42, 0.8); }
+        .price-value { font-size: 2.8rem; font-weight: 800; color: #fff; margin: 1.5rem 0; }
+        .pricing-features { list-style: none; text-align: right; margin-bottom: 2.5rem; }
+        .pricing-features li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
         .pricing-features li::before { content: '✓'; color: var(--success); font-weight: bold; }
 
-        /* ========== بخش جدید: آکاردئون هوشمند (FAQ) ========== */
+        /* FAQ Accordion */
         .faq-container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
-        .faq-item {
-            background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md);
-            box-shadow: var(--neu-shadow); overflow: hidden; transition: all var(--transition-fast);
-        }
-        .faq-trigger {
-            width: 100%; padding: 1.2rem 1.5rem; background: transparent; border: none; text-align: right;
-            color: #fff; font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex;
-            justify-content: space-between; align-items: center;
-        }
-        .faq-trigger::after { content: '+'; font-size: 1.5rem; transition: transform var(--transition-fast); }
-        .faq-item.active .faq-trigger::after { transform: rotate(45deg); }
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height var(--transition-normal) ease-out; padding: 0 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
-        .faq-item.active .faq-content { max-height: 200px; padding-bottom: 1.5rem; }
+        .faq-item { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--neu-shadow); }
+        .faq-trigger { width: 100%; padding: 1.2rem 1.5rem; background: transparent; border: none; text-align: right; color: #fff; font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
+        .faq-item.active .faq-content { max-height: 200px; padding-bottom: 1.2rem; }
 
-        /* ========== فوتر ========== */
-        .footer {
-            background: var(--glass-bg-strong); backdrop-filter: var(--glass-blur); border-top: 1px solid var(--glass-border);
-            padding: 4rem var(--container-padding) 2rem; position: relative; z-index: 10; margin-top: 5rem;
-        }
-        .footer-grid { max-width: var(--max-width); margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2.5rem; }
+        /* Footer */
+        .footer { background: var(--glass-bg-strong); border-top: 1px solid var(--glass-border); padding: 4rem var(--container-padding) 2rem; margin-top: 5rem; }
+        .footer-grid { max-width: var(--max-width); margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; }
         .footer-col h4 { font-size: 1.1rem; margin-bottom: 1.2rem; position: relative; padding-bottom: 0.5rem; }
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; right: 0; width: 30px; height: 2px; background: var(--primary); }
-        .footer-col a { display: block; color: var(--text-muted); text-decoration: none; padding: 0.4rem 0; font-size: 0.9rem; transition: all var(--transition-fast); }
-        .footer-col a:hover { color: var(--primary-hover); transform: translateX(-3px); }
-        .footer-bottom { max-width: var(--max-width); margin: 0 auto; border-top: 1px solid var(--glass-border); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: var(--text-muted); }
+        .footer-col a { display: block; color: var(--text-muted); text-decoration: none; padding: 0.4rem 0; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--primary-hover); }
 
-        /* ========== واکنش‌گرایی موبایل ========== */
-        @media (max-width: 768px) {
-            .floating-nav { display: none; }
-            .nav { display: none; }
-            .roadmap-container::before { right: 1.5rem; }
-            .roadmap-item { width: 100%; padding: 1rem 0 1rem 2rem !important; }
-            .roadmap-item::after { right: auto; left: auto; right: calc(1.5rem - 7px) !important; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-        }
+        @media (max-width: 768px) { .floating-nav, .nav-links { display: none; } }
     </style>
 </head>
 <body>
 
-    <div class="liquid-bg-container">
-        <div class="liquid-blob liquid-blob-1"></div>
-        <div class="liquid-blob liquid-blob-2"></div>
-        <div class="liquid-blob liquid-blob-3"></div>
+    <div class="liquid-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
     </div>
-    <div class="tech-grid" aria-hidden="true"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
     
-    <nav class="floating-nav" aria-label="ناوبری سریع">
+    <nav class="floating-nav">
         <button class="nav-dot active" data-target="hero" data-label="خانه"></button>
-        <button class="nav-dot" data-target="services" data-label="سرویس‌ها"></button>
-        <button class="nav-dot" data-target="features" data-label="ویژگی‌ها"></button>
-        <button class="nav-dot" data-target="roadmap" data-label="نقشه راه"></button>
-        <button class="nav-dot" data-target="pricing" data-label="پلن‌ها"></button>
-        <button class="nav-dot" data-target="faq" data-label="سوالات متداول"></button>
+        <button class="nav-dot" data-target="spaces" data-label="فضاهای ارتباطی"></button>
+        <button class="nav-dot" data-target="privacy" data-label="امنیت و حریم خصوصی"></button>
+        <button class="nav-dot" data-target="premium" data-label="سطح اتمی و پریمیوم"></button>
+        <button class="nav-dot" data-target="faq" data-label="پاسخ به سوالات"></button>
     </nav>
 
     <header class="header">
         <div class="header-inner">
             <a href="#" class="logo">NOVA ⚡</a>
-            <nav class="nav">
-                <a href="#services" class="nav-link">سرویس‌ها</a>
-                <a href="#features" class="nav-link">ویژگی‌ها</a>
-                <a href="#roadmap" class="nav-link">نقشه راه</a>
-                <a href="#pricing" class="nav-link">پلن‌ها</a>
-                <a href="#" class="btn btn-primary" style="padding:0.5rem 1.5rem; font-size:0.85rem;">دانلود اپلیکیشن</a>
+            <nav class="nav-links">
+                <a href="#spaces">اجتماع حساب‌ها</a>
+                <a href="#privacy">امنیت متقابل</a>
+                <a href="#premium">اکوسیستم پریمیوم</a>
+                <a href="chat.html" class="btn btn-glass" style="padding:0.4rem 1.2rem; font-size:0.85rem;">ورود به وب‌اپلیکیشن</a>
+                <a href="admin.html" class="btn btn-primary" style="padding:0.4rem 1.2rem; font-size:0.85rem;">پنل ادمین</a>
             </nav>
         </div>
     </header>
 
     <main class="main">
+        <!-- Hero Section -->
         <section class="hero section" id="hero">
-            <div>
-                <div class="hero-badge reveal">🚀 تجربه نسل جدید پلتفرم‌های ابری دیجیتال</div>
-                <h1 class="reveal">آینده هوشمند در دستان شما</h1>
-                <p class="reveal">ترکیبی بی‌نظیر و مهندسی‌شده از شیشه مایع و امنیت پیشرفته، پلتفرم یکپارچه NOVA برای مدیریت مالی، ارتباطات رمزنگاری شده و دستیار اختصاصی هوش مصنوعی شما.</p>
-                <div class="hero-actions reveal">
-                    <a href="#services" class="btn btn-primary">شروع تجربه رایگان</a>
-                    <a href="#roadmap" class="btn btn-glass">نقشه توسعه سیستم ←</a>
-                </div>
+            <div class="hero-badge">💎 نسل نوین ارتباطات مبتنی بر ارز داخلی NOVA</div>
+            <h1>یک ساختار، بی‌نهایت امکانات</h1>
+            <p>سوپراپلیکیشن NOVA با معماری توسعه‌یافته، لایه‌های حریم خصوصی منحصربه‌فرد، مینی‌آپ‌های اختصاصی صوتی و تصویری و مدیریت مالی بومی، تعریف جدیدی از یک شبکه ارتباطی پایدار ارائه می‌دهد.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="chat.html" class="btn btn-primary">آغاز گفت‌وگو و تعامل</a>
+                <a href="store.html" class="btn btn-glass">مارکت‌‌پلیس گیفت و نام کلکسیونی</a>
             </div>
         </section>
 
-        <section id="services" class="section">
+        <!-- Ticks Section (تیک‌های اصالت) -->
+        <section class="section" style="padding: 2rem 0;">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 700;">سیستم لایه‌ای احراز هویت و تیک‌های اصالت حساب</h3>
+            </div>
+            <div class="ticks-group">
+                <div class="tick-badge tick-purple">🔮 تیک بنفش (سازمان و حساب رسمی NOVA)</div>
+                <div class="tick-badge tick-blue">🛡️ تیک آبی (شخص حقیقی تاییدشده)</div>
+                <div class="tick-badge tick-green">💼 تیک سبز (حساب تجاری و بیزنس احرازشده)</div>
+                <div class="tick-badge tick-gold">👑 تیک طلایی (مقامات و نمایندگان رسمی)</div>
+            </div>
+        </section>
+
+        <!-- Social Spaces Section -->
+        <section id="spaces" class="section">
             <div class="section-header">
-                <h2 class="section-title reveal">خدمات هوشمند پلتفرم</h2>
-                <p class="section-subtitle reveal">یکپارچگی ابزارها، شما را از نصب برنامه‌های متعدد بی‌نیاز می‌سازد.</p>
+                <h2 class="section-title">اجتماع نوین حساب‌ها و فضاها</h2>
+                <p class="section-subtitle">روابط خود را بر اساس سطوح دسترسی مهندسی کنید؛ از حریم کاملاً خصوصی تا فضاهای تعاملی بزرگ.</p>
             </div>
             <div class="grid-cards">
-                <div class="card-tech reveal" data-tilt>
-                    <span class="card-icon">💬</span>
-                    <h3>پیام‌رسان لایه‌ای</h3>
-                    <p>ارتباطات سریع، روان و کاملاً محرمانه با پروتکل‌های پیشرفته امنیتی End-to-End.</p>
+                <div class="card-tech">
+                    <span class="card-icon">👥</span>
+                    <h3>کانال، گروه و بات‌های ست‌شده</h3>
+                    <p>امکان همگام‌سازی و ست کردن کانال، گروه و بات‌های کاربردی با احراز هویت اختصاصی جهت مدیریت منسجم بازارها و ادمین‌ها.</p>
                 </div>
-                <div class="card-tech reveal" data-tilt>
-                    <span class="card-icon">💰</span>
-                    <h3>کیف پول شیشه‌ای</h3>
-                    <p>مدیریت دارایی‌ها، انتقال آنی و پرداخت‌های هوشمند تحت بستر کامپوزیت پایدار.</p>
+                <div class="card-tech">
+                    <span class="card-icon">🔒</span>
+                    <h3>گفت‌وگوی شخصی موقت و پارتنری</h3>
+                    <p>قابلیت تنظیم سِت پروفایل پارتنری و تعریف فضاهای چت شخصی موقت با مکانیسم‌های تخریب خودکار اطلاعات متقابل.</p>
                 </div>
-                <div class="card-tech reveal" data-tilt>
-                    <span class="card-icon">🤖</span>
-                    <h3>پردازشگر هوش مصنوعی</h3>
-                    <p>تحلیل داده‌ها، پاسخگویی خودکار و دستیار صوتی اختصاصی هماهنگ با نیازهای شما.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="section">
-            <div class="section-header">
-                <h2 class="section-title reveal">تکنولوژی و کارایی مهندسی شده</h2>
-                <p class="section-subtitle reveal">سیستم توسعه یافته مبتنی بر سرعت، زیبایی لایه‌ای و دسترسی بهینه.</p>
-            </div>
-            <div class="features-tabs reveal">
-                <button class="tab-btn active" data-tab="sec">امنیت پیشرفته</button>
-                <button class="tab-btn" data-tab="perf">پایداری و ساختار</button>
-            </div>
-            
-            <div class="tab-content active" id="tab-sec">
-                <div class="card-tech"><h4>احراز بیومتریک</h4><p>تایید هویت دو مرحله‌ای سخت‌افزاری</p></div>
-                <div class="card-tech"><h4>سرورهای توزیع‌شده</h4><p>پایداری دائمی بدون قطعی شبکه</p></div>
-            </div>
-            <div class="tab-content" id="tab-perf">
-                <div class="card-tech"><h4>رابط مایع</h4><p>طراحی مدرن با نرخ فریم فوق العاده نرم</p></div>
-                <div class="card-tech"><h4>هماهنگی ابری</h4><p>اتصال لحظه‌ای تمام دستگاه‌های متصل</p></div>
-            </div>
-        </section>
-
-        <section id="roadmap" class="section">
-            <div class="section-header">
-                <h2 class="section-title reveal">مسیر توسعه ایده به واقعیت</h2>
-                <p class="section-subtitle reveal">برنامه‌ریزی دقیق مهندسی ما برای آینده روشن این اکوسیستم هوشمند.</p>
-            </div>
-            <div class="roadmap-container">
-                <div class="roadmap-item reveal">
-                    <div class="roadmap-box">
-                        <span style="color: var(--secondary); font-weight: bold;">فاز اول - ۲۰۲۶</span>
-                        <h3 style="margin: 0.5rem 0 0.2rem;">تثبیت زیرساخت مایع</h3>
-                        <p>رونمایی از هسته پردازشی فوق سریع و پلتفرم ارتباطی پایه شیشه‌ای.</p>
-                    </div>
-                </div>
-                <div class="roadmap-item left reveal">
-                    <div class="roadmap-box">
-                        <span style="color: var(--primary); font-weight: bold;">فاز دوم - اواخر ۲۰۲۶</span>
-                        <h3 style="margin: 0.5rem 0 0.2rem;">ادغام هوش مصنوعی تعاملی</h3>
-                        <p>افزودن مدل‌های پردازش زبان طبیعی و بهینه‌سازی نیومورفیسم لایه‌ای رابط کاربری.</p>
-                    </div>
+                <div class="card-tech">
+                    <span class="card-icon">⭐</span>
+                    <h3>حصار امن کلوز فرند (Close Friends)</h3>
+                    <p>محدودسازی نمایش تصاویر، ایمیل، جنسیت، وب‌سایت، لوکیشن و موزیک پروفایل فقط برای دایره نزدیکان یا حساب‌های استثنا.</p>
                 </div>
             </div>
         </section>
 
-        <section id="pricing" class="section">
+        <!-- Privacy & Chat Options Section -->
+        <section id="privacy" class="section">
             <div class="section-header">
-                <h2 class="section-title reveal">پکیج‌های منعطف و بهینه</h2>
-                <p class="section-subtitle reveal">انتخاب بهترین سطح دسترسی متناسب با مقیاس کاری شما.</p>
+                <h2 class="section-title">امنیت سخت‌گیرانه دوطرفه و ابزارهای پیام‌رسانی</h2>
+                <p class="section-subtitle">شما مالک داده‌های خود هستید. کنترل کامل بر دانلود، اسکرین‌شات و نمایش محتوا.</p>
+            </div>
+            <div class="grid-cards">
+                <div class="card-tech">
+                    <h3>مکانیزم‌های تخریب و پین متقابل</h3>
+                    <p>تنظیم پین کد دوطرفه روی چت‌ها با پذیرش کاربر مقابل، در کنار حذف خودکار گفت‌وگوهای شخصی و دوطرفه با اطلاع‌رسانی قبلی به طرف مقابل.</p>
+                </div>
+                <div class="card-tech">
+                    <h3>محافظت در برابر سرقت رسانه</h3>
+                    <p>ممنوعیت کامل گرفتن اسکرین‌شات و ضبط صفحه در محیط‌های تعیین‌شده به همراه سیستم اسپویلر عکس و پین‌گذاری عددی روی فایل‌ها جهت دانلود.</p>
+                </div>
+                <div class="card-tech">
+                    <h3>ابزارهای ارسال و فیلترینگ</h3>
+                    <p>ارسال مستقیم برنامه‌های نصب شده، خروجی تصویری پیام‌ها در قالب انحصاری NOVA، قابلیت To-Do List ساختاریافته و فیلترهای عکاسی شبیه اسنپ‌چت.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium & Economy Section -->
+        <section id="premium" class="section">
+            <div class="section-header">
+                <h2 class="section-title">پریمیوم اتمی و چرخه اقتصادی اکوسیستم</h2>
+                <p class="section-subtitle">قدرت واقعی سوپراپلیکیشن را با شکستن محدودیت‌ها و تعامل با ارز بومی NOVA تجربه کنید.</p>
             </div>
             <div class="pricing-grid">
-                <div class="pricing-card reveal">
-                    <h3>دسترسی استاندارد</h3>
-                    <div class="price">رایگان</div>
-                    <ul class="pricing-features">
-                        <li>پیام‌رسان امن پایه</li>
-                        <li>کیف پول دیجیتال یکپارچه</li>
-                        <li>پشتیبانی سیستماتیک انجمن</li>
-                    </ul>
-                    <a href="#" class="btn btn-glass" style="width: 100%;">شروع کار</a>
+                <div class="pricing-card">
+                    <h3>چرخه ارز بومی NOVA</h3>
+                    <div class="price-value">کیف پول Wallet</div>
+                    <p style="color:var(--text-muted); margin-bottom: 1.5rem;">مدیریت، انتقال و ارسال پاکت‌های هدیه ارز NOVA در چت‌ها، لایوها و استوری‌ها با داشبورد اختصاصی کسب درآمد و فرمول‌های توزیع سود تبلیغات.</p>
+                    <a href="store.html" class="btn btn-glass" style="width: 100%;">ورود به بخش مالی</a>
                 </div>
-                <div class="pricing-card premium reveal">
-                    <h3>حساب کاربری حرفه‌ای</h3>
-                    <div class="price">۴۹,۰۰۰ <span>/ ماهانه</span></div>
+                <div class="pricing-card premium-tier">
+                    <h3>مزایای حساب پریمیوم (Premium)</h3>
+                    <div class="price-value">امکانات نامحدود</div>
                     <ul class="pricing-features">
-                        <li>کلیه قابلیت‌های نسخه رایگان</li>
-                        <li>دستیار اختصاصی هوش مصنوعی هوشمند</li>
-                        <li>پشتیبانی اولویت‌دار ۲۴ ساعته اختصاصی</li>
+                        <li>تبدیل خودکار صدا (ویس) به متن متنی</li>
+                        <li>عدم نمایش کامپوزیت تبلیغات پلتفرم</li>
+                        <li>تنظیم تصویر پروفایل با فرمت GIF یا کاراکتر مجازی متحرک</li>
+                        <li>محدودیت کمتر در پین گفت‌وگو، حجم فایل، استوری و رزرو لینک عمومی</li>
+                        <li>امکان ارسال پیام‌های ارسال‌نشده بلافاصله پس از آنلاین شدن</li>
                     </ul>
-                    <a href="#" class="btn btn-primary" style="width: 100%;">ارتقا به نسخه پرو</a>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">خرید اشتراک پریمیوم</a>
                 </div>
             </div>
         </section>
 
+        <!-- FAQ Section -->
         <section id="faq" class="section">
             <div class="section-header">
-                <h2 class="section-title reveal">پاسخ به سوالات پرتکرار شما</h2>
-                <p class="section-subtitle reveal">هر آنچه برای شروع کار با معماری شیشه‌ای مایع نوا نیاز دارید بدانید.</p>
+                <h2 class="section-title">سوالات متداول کاربران</h2>
             </div>
             <div class="faq-container">
-                <div class="faq-item reveal">
-                    <button class="faq-trigger">آیا پلتفرم NOVA امنیت دارایی‌ها را تضمین می‌کند؟</button>
+                <div class="faq-item">
+                    <button class="faq-trigger">عدد یکتای اختصاصی حساب کاربری چیست؟</button>
                     <div class="faq-content">
-                        <p>بله، تمامی تراکنش‌ها و لایه‌های ارتباطی پلتفرم در بستر پروتکل‌های رمزنگاری اختصاصی چند لایه‌ای (E2E) پیاده‌سازی شده‌اند تا بالاترین استاندارد حفاظت فراهم شود.</p>
+                        <p>این عدد نشان‌دهنده رتبه دقیق ثبت‌نام شما در پلتفرم سراسری NOVA است که از شماره ۱ شروع شده و اصالت و قدمت حساب شما را اثبات می‌کند.</p>
                     </div>
                 </div>
-                <div class="faq-item reveal">
-                    <button class="faq-trigger">چگونه طراحی Liquid Glass کارایی سیستم را بهبود می‌دهد؟</button>
+                <div class="faq-item">
+                    <button class="faq-trigger">نام کاربری کلکسیونی چه تفاوتی با نام کاربری اصلی دارد؟</button>
                     <div class="faq-content">
-                        <p>این زبان طراحی جدید علاوه بر جنبه بصری فوق‌العاده مدرن، به واسطه شتاب‌دهی سخت‌افزاری بهینه‌شده، کمترین میزان مصرف باتری و پردازش پردازنده را به همراه دارد.</p>
+                        <p>کاربران می‌توانند نام‌های کاربری رند و ارزشمند را رزرو یا خریداری کنند و آن‌ها را به عنوان شناسه فرعی و معتبر زیر نام کاربری اصلی خود به نمایش بگذارند.</p>
                     </div>
                 </div>
             </div>
@@ -474,77 +300,52 @@
 
     <footer class="footer">
         <div class="footer-grid">
-            <div class="footer-col"><h4>پلتفرم NOVA</h4><a href="#">درباره اکوسیستم</a><a href="#">توسعه‌دهندگان</a><a href="#">وبلاگ تکنولوژی</a></div>
-            <div class="footer-col"><h4>بخش حقوقی</h4><a href="#">حریم خصوصی کاربران</a><a href="#">قوانین پلتفرم</a><a href="#">امنیت شبکه</a></div>
+            <div class="footer-col"><h4>بات‌های بومی NOVA</h4><a href="#">🤖 دستیار کنترل مراجعین پروفایل</a><a href="#">💬 گفت‌وگوی ناشناس و دوستیابی</a><a href="#">⚙️ ربات استانداردیزه مدیریت گروه</a></div>
+            <div class="footer-col"><h4>کانال‌های رسمی</h4><a href="#">📢 کانال قابلیت‌ها و ترفندها</a><a href="#">📊 بستر فریلنسری ست‌شده با بات</a><a href="#">🎟️ کانال قرعه‌کشی‌ها و گیفت‌ها</a></div>
+            <div class="footer-col"><h4>ابزارهای شخصی درون‌برنامه‌ای</h4><a href="#">📄 مرورگر و PDF خوان اختصاصی</a><a href="#">🎵 لوپ پلیر موزیک و بیوگرافی</a><a href="#">🔍 اسکنر امنیتی QR Code</a></div>
         </div>
         <div class="footer-bottom">
-            <p>© ۲۰۲۶ اکوسیستم NOVA. طراحی شده برای آینده هوشمند.</p>
+            <p>© ۲۰۲۶ سوپراپلیکیشن NOVA. تمامی حقوق و پروتکل‌های ارتباطی محفوظ است.</p>
+            <p>قدرت‌گرفته از سیستم اقتصاد توکنومیک NOVA</p>
         </div>
     </footer>
 
     <script>
-        // ========== انیمیشن ریپل و کلیک مایع ==========
-        document.querySelectorAll('.btn, .card-tech, .tab-btn, .faq-trigger').forEach(el => {
-            el.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                ripple.style.width = ripple.style.height = `${size}px`;
-                ripple.style.left = `${e.clientX - rect.left - size/2}px`;
-                ripple.style.top = `${e.clientY - rect.top - size/2}px`;
-                this.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // ========== افکت حرکت ۳ بعدی کارت‌ها (Tilt) ==========
-        document.querySelectorAll('[data-tilt]').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width/2;
-                const y = e.clientY - rect.top - rect.height/2;
-                card.style.transform = `perspective(1000px) rotateX(${-y / 12}deg) rotateY(${x / 12}deg) translateY(-5px)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-            });
-        });
-
-        // ========== آکاردئون هوشمند FAQ ==========
-        document.querySelectorAll('.faq-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const parent = trigger.parentElement;
-                parent.classList.toggle('active');
-            });
-        });
-
-        // ========== مدیریت تب‌ها ==========
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
-            });
-        });
-
-        // ========== انیمیشن اسکرول زنده و نوار پیشرفت ==========
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
+        // نوار پیشرفت اسکرول
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById('scrollProgress').style.width = scrolled + '%';
-            document.querySelector('.header').classList.toggle('scrolled', winScroll > 50);
+        });
+
+        // مکانیزم آکاردئون سوالات
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // سیستم ناوبری شناور کناری
+        const sections = document.querySelectorAll('.section');
+        const dots = document.querySelectorAll('.nav-dot');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) { current = section.getAttribute('id'); }
+            });
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-target') === current) { dot.classList.add('active'); }
+            });
+        });
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetId = dot.getAttribute('data-target');
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
         });
     </script>
 </body>
